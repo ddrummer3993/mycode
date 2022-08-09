@@ -1,15 +1,15 @@
 # mycode
 
-Tracking my code
+Code written for my Alta3 Python Course.
 
-##Purpose
+## Purpose
 
 Various code projects for learning during Amazon SDE apprenticeship ILT
 
-##Built with 
+## Built with 
 
 * [Python](https://www.python.org/) - the coding language used.
 
-##Author
+## Author
 
 David Drummer - Amazon SDE apprentice
