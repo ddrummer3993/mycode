@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
+"""author: some guy at alta ptobably
+    using this for a lab about loops and also pylint"""
 
 # create counter
-round = 0
+ROUND = 0
 
 # create while loop that will control program
 while True:
 
     # increment counter
-    round = round + 1
+    ROUND = ROUND + 1
 
     # prompt user with questions and get input
     print('Finish the movie title, "Monty Python\'s The Life of _____"')
@@ -17,10 +19,7 @@ while True:
     if answer == 'Brian':
         print('Correct!')
         break
-    elif round == 3: 
+    if round == 3:
         print('Sorry, the answer was Brian.')
         break
-    else:
-        print('Sorry! Try again!')
-
-
+    print('Sorry! Try again!')
