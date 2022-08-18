@@ -48,17 +48,19 @@ def character_search():
 
 # handle character data response from R&M API
 def handle_char(charData):
+    print('{}'.format(crayons.cyan('\n================================================================')))
 
     # loop through data and display key data for each character in the list
     for char in charData:
         print(f'\nName: {char["name"]}')
         if char['status'] == 'Alive':
-            print(f'Status: {crayons.green(char["status"])} - {char["species"]}')
+            print(f'\nStatus: {crayons.green(char["status"])} - {char["species"]}')
         elif char['status'] == 'Dead':
-            print(f'Status: {crayons.red(char["status"])} - {char["species"]}')
+            print(f'\nStatus: {crayons.red(char["status"])} - {char["species"]}')
         else:
-            print(f'Status: {crayons.yellow(char["status"])} - {char["species"]}')
-        print(f'Last known location: {char["location"]["name"]}')
+            print(f'\nStatus: {crayons.yellow(char["status"])} - {char["species"]}')
+        print(f'\nOrigin location: {char["origin"]["name"]}')
+        print(f'\nLast known location: {char["location"]["name"]}')
         print('{}'.format(crayons.cyan('\n================================================================')))
 
 """ ------------------ location search funcs ----------------------"""
@@ -78,6 +80,7 @@ def location_search():
 
 # handle location data response from R&M API
 def handle_loc(locData):
+    print('{}'.format(crayons.cyan('\n================================================================')))
 
     # loop through data and display key data for each character in the list
     for loc in locData:
@@ -103,6 +106,7 @@ def episode_search():
 
 # handle episode data response from R&M API
 def handle_ep(epData):
+    print('{}'.format(crayons.cyan('\n================================================================')))
 
     # loop through data and display key data for each episode
     for ep in epData:
