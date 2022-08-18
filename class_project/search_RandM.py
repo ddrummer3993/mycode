@@ -31,6 +31,8 @@ def prompt_user():
         print('\nRick: Thats not an option, Doofus Rick... I\'m sure you can get it right this time.\n')
         prompt_user()
 
+""" ------------------ character search funcs ----------------------"""
+
 # character search functions
 def character_search():
 
@@ -47,7 +49,7 @@ def character_search():
 # handle character data response from R&M API
 def handle_char(charData):
 
-    #loop through data and display key data for each character in the list
+    # loop through data and display key data for each character in the list
     for char in charData:
         print(f'\nName: {char["name"]}')
         if char['status'] == 'Alive':
@@ -58,6 +60,8 @@ def handle_char(charData):
             print(f'Status: {crayons.yellow(char["status"])} - {char["species"]}')
         print(f'Last known location: {char["location"]["name"]}')
         print('\n================================================================')
+
+""" ------------------ location search funcs ----------------------"""
 
 # location search function
 def location_search():
@@ -70,7 +74,15 @@ def location_search():
 
     # .json() method converts JSON string into python data structure
     locations = resp.json().get('results')
-    print(locations)
+    handle_loc(locations)
+
+# handle location data response from R&M API
+def handle_loc(locData):
+
+    # loop through data and display key data for each character in the list
+    print(locData)
+
+""" ------------------- episode search funcs -----------------------"""
 
 # episode search function
 def episode_search():
