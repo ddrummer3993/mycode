@@ -59,7 +59,7 @@ def handle_char(charData):
         else:
             print(f'Status: {crayons.yellow(char["status"])} - {char["species"]}')
         print(f'Last known location: {char["location"]["name"]}')
-        print('\n================================================================')
+        print('{}'.format(crayons.cyan('\n================================================================')))
 
 """ ------------------ location search funcs ----------------------"""
 
@@ -80,7 +80,11 @@ def location_search():
 def handle_loc(locData):
 
     # loop through data and display key data for each character in the list
-    print(locData)
+    for loc in locData:
+        print(f'\nName: {loc["name"]}')
+        print(f'\nType: {loc["type"]}')
+        print(f'\nDimension: {loc["dimension"]}')
+        print('{}'.format(crayons.cyan('\n================================================================')))
 
 """ ------------------- episode search funcs -----------------------"""
 
@@ -95,6 +99,8 @@ def episode_search():
     # .json() method converts JSON string into python data structure
     episode = resp.json().get('results')
     print(episode)
+
+""" ------------------- MAIN FUNCTION -----------------------"""
 
 # main function defintion
 def main():
