@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """ DDrummer | Amazon SDE apprentice - Python ILT
-    Python class project: using a REST API to retreive and display requested search data. """
+    Python class project: using a REST API to retreive and display requested search data.
+    This application will take user input and use it to retrieve relevant data from the 
+    Rick and Morty API and display it appropriately for the user. """
 
 # imports
 import requests
 import time
 import sys
+import crayons
 
 # base API definition
 API = 'https://rickandmortyapi.com/api'
@@ -39,7 +42,22 @@ def character_search():
 
     # .json() method converts JSON string into python data structure
     characters = resp.json().get('results')
-    print(characters)
+    handle_char(characters)
+
+# handle character data response from R&M API
+def handle_char(charData):
+
+    #loop through data and display key data for each character in the list
+    for char in charData:
+        print(f'\nName: {char["name"]}')
+        if char['status'] == 'Alive':
+            print(f'Status: {crayons.green(char["status"])} - {char["species"]}')
+        elif char['status'] == 'Dead':
+            print(f'Status: {crayons.red(char["status"])} - {char["species"]}')
+        else:
+            print(f'Status: {crayons.yellow(char["status"])} - {char["species"]}')
+        print(f'Last known location: {char["location"]["name"]}')
+        print('\n================================================================')
 
 # location search function
 def location_search():
