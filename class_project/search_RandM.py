@@ -90,15 +90,26 @@ def handle_loc(locData):
 
 # episode search function
 def episode_search():
+
     # prompt user to give a character name to search by
-    episode_name = input('\nRick: Alright, bird brain. let\'s search for an episode, but see if you\'re smart enough to put it in the right format. First season number, than episode number (S01E01): ')
+    episode_name = input('\nRick: Alright, bird brain. let\'s search for an episode, but see if you\'re smart enough to put it in the right format. First season number, then episode number (S01E01): ')
 
     # create resp, our request object
     resp = requests.get(f'{API}/episode/?episode={episode_name}')
 
     # .json() method converts JSON string into python data structure
     episode = resp.json().get('results')
-    print(episode)
+    handle_ep(episode)
+
+# handle episode data response from R&M API
+def handle_ep(epData):
+
+    # loop through data and display key data for each episode
+    for ep in epData:
+        print(f'\nName: {ep["name"]}')
+        print(f'\nAir Date: {ep["air_date"]}')
+        print(f'\nEpisode: {ep["episode"]}')
+        print('{}'.format(crayons.cyan('\n================================================================')))
 
 """ ------------------- MAIN FUNCTION -----------------------"""
 
